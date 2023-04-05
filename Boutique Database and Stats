@@ -1,0 +1,35 @@
+-- create a store database
+
+CREATE TABLE kyna_boutique (id INTEGER PRIMARY KEY, item TEXT, fabric TEXT, price INTEGER, quantity INTEGER);
+
+INSERT INTO kyna_boutique VALUES (1, "Tank","cotton", 5.99, 10);
+INSERT INTO kyna_boutique VALUES (2, "T-shirt", "cotton", 8.99, 10);
+INSERT INTO kyna_boutique VALUES (3, "Shorts","denim", 12.99, 7);
+INSERT INTO kyna_boutique VALUES (4, "Summer Shorts","linen", 15.99, 7);
+INSERT INTO kyna_boutique VALUES (5, "Jeans","denim", 20, 7);
+INSERT INTO kyna_boutique VALUES (6, "Summer Pants","linen", 25.99, 7);
+INSERT INTO kyna_boutique VALUES (7, "Headband", "cotton", 1.99, 20);
+INSERT INTO kyna_boutique VALUES (8, "Socks", "cotton", 2.99, 20);
+INSERT INTO kyna_boutique VALUES (9, "Underwear", "cotton", 5, 10);
+INSERT INTO kyna_boutique VALUES (10, "Bralette", "lace", 10, 15);
+INSERT INTO kyna_boutique VALUES (11, "Tote Bag", "canvas", 10.99, 30);
+INSERT INTO kyna_boutique VALUES (12, "Matches", "paper", 0.99, 30);
+INSERT INTO kyna_boutique VALUES (13, "Earrings", "gold", 50.99, 10);
+INSERT INTO kyna_boutique VALUES (14, "Necklace", "silver", 42, 10);
+INSERT INTO kyna_boutique VALUES (15, "Ring", "gold", 30.25, 15);
+
+--display the database ordered by price: 
+SELECT * FROM kyna_boutique
+ORDER BY price desc; 
+
+--what is the avg price of items that are linen fabric? 
+SELECT AVG(price) "avg bulk item price"
+FROM kyna_boutique
+WHERE fabric='linen'; 
+
+--which 4 items do we have the most of? 
+SELECT item, price, quantity
+FROM kyna_boutique
+ORDER by quantity desc
+LIMIT 4; 
+
