@@ -1,0 +1,95 @@
+/* Create table about famous women and what they do */
+
+CREATE TABLE Famous_Women (id INTEGER PRIMARY KEY,
+first_name TEXT,
+last_name TEXT,
+annual_income INTEGER,
+occupation INTEGER);
+
+INSERT INTO Famous_Women (first_name, last_Name, annual_income, occupation)
+VALUES ("Scarlett", "Johanson", "56 million", 1);
+INSERT INTO Famous_Women (first_name, last_Name, annual_income, occupation)
+VALUES ("Reese", "Witherspoon", "35 million", 1);
+INSERT INTO Famous_Women (first_name, last_Name, annual_income, occupation)
+VALUES ("Angelina", "Jolie", "36 million", 1);
+INSERT INTO Famous_Women (first_name, last_Name, annual_income, occupation)
+VALUES ("Julia", "Roberts", "30 million", 1);
+INSERT INTO Famous_Women (first_name, last_Name, annual_income, occupation)
+VALUES ("Jennifer", "Aniston", "28 million", 1);
+INSERT INTO Famous_Women (first_name, last_Name, annual_income, occupation)
+VALUES ("Taylor", "Swift", "36 million", 2);
+INSERT INTO Famous_Women (first_name, last_Name, annual_income, occupation)
+VALUES ("Billie", "Eillish", "76 million", 2);
+INSERT INTO Famous_Women (first_name, last_Name, annual_income, occupation)
+VALUES ("Ariana", "Grande", "30 million", 2);
+INSERT INTO Famous_Women (first_name, last_Name, annual_income, occupation)
+VALUES ("Beyonce", " Knowles", "37 million", 2);
+INSERT INTO Famous_Women (first_name, last_Name, annual_income, occupation)
+VALUES ("Naomi", " Osaka", "51 million", 3);
+INSERT INTO Famous_Women (first_name, last_Name, annual_income, occupation)
+VALUES ("Serena", "Williams", "41 million", 3);
+INSERT INTO Famous_Women (first_name, last_Name, annual_income, occupation)
+VALUES ("Eileen", "Gu", "11 million", 3);
+INSERT INTO Famous_Women (first_name, last_Name, annual_income, occupation)
+VALUES ("Kendall", "Jenner", "20 million", 4);
+INSERT INTO Famous_Women (first_name, last_Name, annual_income, occupation)
+VALUES ("Adriana", "Lima", "30 million", 4);
+INSERT INTO Famous_Women (first_name, last_Name, annual_income, occupation)
+VALUES ("Cara", "Delevingne ", "10 million", 4);
+
+CREATE TABLE Occupation (id INTEGER PRIMARY KEY,
+title TEXT);
+
+INSERT INTO Occupation VALUES (1, "Actor");
+INSERT INTO Occupation VALUES (2, "Musician");
+INSERT INTO Occupation VALUES (3, "Athlete");
+INSERT INTO Occupation VALUES (4, "Model");
+
+/*What are the occupations of the famous women?*/
+
+SELECT FW.first_name, FW.last_name, O.title 
+FROM Famous_Women as FW
+JOIN Occupation as O
+ON FW.occupation = O.id 
+ORDER BY title;
+
+/*List all the famous women by annual income, showing their occupation.*/
+
+SELECT FW.first_name, FW.last_name, FW.annual_income, O.title 
+FROM Famous_Women as FW
+JOIN Occupation as O
+ON FW.occupation = O.id 
+ORDER BY annual_income DESC;
+
+/*List all the actors by annual income.*/
+
+SELECT FW.first_name, FW.last_name, FW.annual_income
+FROM Famous_Women as FW
+JOIN Occupation as O
+ON FW.occupation = O.id 
+WHERE FW.occupation = 1
+ORDER BY annual_income DESC;
+
+/*What model has the highest annual income?*/
+
+SELECT FW.first_name, FW.last_name, MAX(FW.annual_income) as annual_income
+FROM Famous_Women as FW
+JOIN Occupation as O
+ON FW.occupation = O.id 
+WHERE FW.occupation = 4;
+
+/*What famous woman has the highest annual income?*/
+
+SELECT FW.first_name, FW.last_name, MAX(FW.annual_income) as annual_income
+FROM Famous_Women as FW
+JOIN Occupation as O
+ON FW.occupation = O.id; 
+
+/*What famous athlete has the lowest annual income?*/
+
+SELECT FW.first_name, FW.last_name, MIN(FW.annual_income) as annual_income
+FROM Famous_Women as FW
+JOIN Occupation as O
+ON FW.occupation = O.id
+WHERE FW.occupation = 3;
+
