@@ -1,4 +1,4 @@
-/* Create table about famous women and what they do */
+#In this SQL, I'm building my own database, “Famous Women” with multiple tables to quantify statistics about annual income and occupation. 
 
 CREATE TABLE Famous_Women (id INTEGER PRIMARY KEY,
 first_name TEXT,
