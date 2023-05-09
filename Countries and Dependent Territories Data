@@ -1,3 +1,5 @@
+#In this SQL, I'm querying a database of countries and dependent territories to learn statistics about population, fertility rate, area, and density per sq km.
+
 /*
  Countries and dependent territories, 2020
  Data adapted from
