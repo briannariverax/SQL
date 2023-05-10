@@ -47,5 +47,5 @@ LIMIT 5;
 /*What are the top 10 highest tempo songs?*/
 SELECT track_name, tempo
 FROM BIT_DB.Spotifydata
-ORDER BY popularity DESC
-LIMIT 5;
+ORDER BY tempo DESC
+LIMIT 10;
